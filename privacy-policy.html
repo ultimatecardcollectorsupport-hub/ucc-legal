@@ -1,152 +1,454 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Politique de Confidentialité — Ultimate Card Collector</title>
+  <title>Privacy Policy — Ultimate Card Collector</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ground:     #0a0a1a;
+      --surface:    #13132a;
+      --surface-hi: #1c1c36;
+      --border:     #1a1a3a;
+      --border-hi:  #2a2a4a;
+      --text:       #c8c8e0;
+      --text-dim:   #5a5a7a;
+      --text-mid:   #8888aa;
+      --accent:     #FFD700;
+      --accent-2:   #DA77F2;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
     body {
+      background: var(--ground);
+      color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0a0a1a;
-      color: #c8c8e0;
-      line-height: 1.7;
-      padding: 24px 16px 60px;
+      font-size: 15px;
+      line-height: 1.78;
+      padding: 0 20px 80px;
     }
-    .container { max-width: 720px; margin: 0 auto; }
+
+    .container { max-width: 680px; margin: 0 auto; }
+
+    /* ── Header ─────────────────────────────────────────── */
+    .header {
+      padding: 52px 0 28px;
+      position: relative;
+    }
+    .header::after {
+      content: '';
+      display: block;
+      height: 1px;
+      margin-top: 28px;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(218,119,242,0.4) 40%, transparent 100%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 18px;
+    }
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
     h1 {
-      color: #FFD700;
-      font-size: 1.8rem;
-      margin-bottom: 6px;
+      font-size: clamp(1.7rem, 6vw, 2.4rem);
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      margin-bottom: 10px;
     }
-    .subtitle { color: #666; font-size: 0.9rem; margin-bottom: 40px; }
+
+    .subtitle {
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Language bar ───────────────────────────────────── */
+    .lang-bar {
+      display: flex;
+      gap: 8px;
+      margin: 32px 0 44px;
+      flex-wrap: wrap;
+    }
+
+    .lang-btn {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border-hi);
+      border-radius: 5px;
+      color: var(--text-dim);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      padding: 7px 16px;
+      text-transform: uppercase;
+      transition: color 0.14s, border-color 0.14s, background 0.14s;
+      outline: none;
+    }
+    .lang-btn:hover {
+      color: var(--text);
+      border-color: var(--accent-2);
+      background: var(--surface-hi);
+    }
+    .lang-btn.active {
+      background: rgba(255,215,0,0.07);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .lang-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+    .lang-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* ── Intro ──────────────────────────────────────────── */
+    .intro {
+      font-size: 14px;
+      color: var(--text-mid);
+      margin-bottom: 40px;
+      line-height: 1.8;
+      padding-left: 14px;
+      border-left: 2px solid var(--border-hi);
+    }
+
+    /* ── Sections ───────────────────────────────────────── */
+    .section { margin-bottom: 32px; }
+
     h2 {
-      color: #DA77F2;
-      font-size: 1.1rem;
-      margin: 32px 0 10px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #1a1a3a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 14px;
+      padding: 10px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-2);
+      border-radius: 0 6px 6px 0;
     }
-    p { margin-bottom: 12px; }
-    ul { padding-left: 20px; margin-bottom: 12px; }
-    li { margin-bottom: 6px; }
-    a { color: #FFD700; text-decoration: none; }
+
+    .sec-num {
+      font-size: 9px;
+      font-weight: 400;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      min-width: 18px;
+    }
+
+    #content p {
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    #content p:last-child { margin-bottom: 0; }
+
+    #content ul {
+      list-style: none;
+      padding: 6px 0 10px;
+    }
+    #content li {
+      position: relative;
+      padding: 5px 0 5px 22px;
+      font-size: 14px;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+    #content li:last-child { border-bottom: none; }
+    #content li::before {
+      content: '▸';
+      position: absolute;
+      left: 4px;
+      top: 6px;
+      color: var(--accent-2);
+      font-size: 9px;
+    }
+
+    strong { color: #fff; font-weight: 600; }
+
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .card {
-      background: #13132a;
-      border: 1px solid #2a2a4a;
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-top: 40px;
+
+    /* ── Contact link ───────────────────────────────────── */
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+      padding: 13px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border-hi);
+      border-radius: 8px;
+      color: var(--accent) !important;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-decoration: none !important;
+      transition: border-color 0.14s, background 0.14s;
     }
-    .card p { margin: 0; font-size: 0.9rem; color: #888; }
+    .contact-link:hover {
+      border-color: var(--accent);
+      background: rgba(255,215,0,0.05);
+    }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    .footer-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border-hi);
+      border-radius: 10px;
+      padding: 16px 22px;
+      margin-top: 52px;
+    }
+    .footer-card::before {
+      content: '✦';
+      color: var(--accent);
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    #page-footer {
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.02em;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <header class="header">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Ultimate Card Collector</div>
+      <h1 id="page-title"></h1>
+      <p class="subtitle" id="page-subtitle"></p>
+    </header>
 
-    <h1>Politique de Confidentialité</h1>
-    <p class="subtitle">Ultimate Card Collector · Dernière mise à jour : juin 2026</p>
+    <nav class="lang-bar" role="group" aria-label="Language / Langue / Idioma / Sprache / Idioma">
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+    </nav>
 
-    <p>
-      Cette politique de confidentialité décrit comment l'application <strong>Ultimate Card Collector</strong>
-      collecte, utilise et protège vos informations lorsque vous utilisez notre application mobile.
-    </p>
+    <p class="intro" id="page-intro"></p>
+    <main id="content"></main>
 
-    <h2>1. Données collectées</h2>
-    <p>Lors de l'utilisation de l'application, nous collectons les informations suivantes :</p>
-    <ul>
-      <li><strong>Nom d'utilisateur (pseudo)</strong> — choisi lors de la création du compte</li>
-      <li><strong>Adresse e-mail</strong> — uniquement si vous utilisez la connexion Google</li>
-      <li><strong>Données de jeu</strong> — collection de cartes, crédits, historique des fusions, statistiques</li>
-      <li><strong>Historique des achats</strong> — achats intégrés effectués dans l'application</li>
-      <li><strong>Photo de profil</strong> — carte choisie comme avatar (stockée sur nos serveurs)</li>
-    </ul>
-    <p>Nous ne collectons pas de données sensibles (localisation, contacts, photos personnelles, etc.).</p>
-
-    <h2>2. Utilisation des données</h2>
-    <p>Les données collectées sont utilisées exclusivement pour :</p>
-    <ul>
-      <li>Faire fonctionner l'application et sauvegarder votre progression</li>
-      <li>Gérer votre compte et vos achats</li>
-      <li>Permettre les fonctionnalités multijoueur (marketplace, échanges de cartes)</li>
-      <li>Améliorer l'expérience utilisateur</li>
-    </ul>
-    <p><strong>Nous ne vendons, ne louons et ne partageons pas vos données personnelles avec des tiers</strong>,
-    sauf dans les cas décrits ci-dessous.</p>
-
-    <h2>3. Publicités (Google AdMob)</h2>
-    <p>
-      L'application affiche des publicités avec récompense via <strong>Google AdMob</strong>.
-      AdMob peut collecter des informations pour personnaliser les publicités, conformément à la
-      <a href="https://policies.google.com/privacy" target="_blank">politique de confidentialité de Google</a>.
-    </p>
-    <p>
-      Les publicités peuvent être supprimées définitivement via l'achat intégré "Sans publicités".
-      Dans ce cas, aucune donnée publicitaire n'est collectée.
-    </p>
-
-    <h2>4. Paiements (RevenueCat)</h2>
-    <p>
-      Les achats intégrés sont gérés via <strong>RevenueCat</strong> et les plateformes de
-      paiement natives (Google Play). Nous ne stockons aucune information bancaire ou de carte de
-      crédit. Ces transactions sont traitées selon les politiques de
-      <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> et de Google.
-    </p>
-
-    <h2>5. Stockage et sécurité des données</h2>
-    <p>
-      Vos données sont stockées sur des serveurs sécurisés hébergés par
-      <strong>Railway</strong> (infrastructure cloud). Les mots de passe sont
-      chiffrés avec bcrypt avant d'être enregistrés. Nous ne stockons jamais de mot de passe en clair.
-    </p>
-    <p>
-      Bien que nous mettions en œuvre des mesures de sécurité raisonnables, aucune transmission
-      de données sur Internet n'est garantie à 100 % sécurisée.
-    </p>
-
-    <h2>6. Conservation des données</h2>
-    <p>
-      Vos données sont conservées tant que votre compte est actif. Vous pouvez demander
-      la suppression de votre compte et de toutes vos données associées en nous contactant
-      à l'adresse indiquée en bas de cette page.
-    </p>
-
-    <h2>7. Droits des utilisateurs (RGPD)</h2>
-    <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
-    <ul>
-      <li><strong>Droit d'accès</strong> — consulter vos données personnelles</li>
-      <li><strong>Droit de rectification</strong> — corriger vos informations</li>
-      <li><strong>Droit à l'effacement</strong> — demander la suppression de votre compte</li>
-      <li><strong>Droit à la portabilité</strong> — obtenir une copie de vos données</li>
-      <li><strong>Droit d'opposition</strong> — vous opposer à certains traitements</li>
-    </ul>
-    <p>Pour exercer ces droits, contactez-nous à l'adresse indiquée ci-dessous.</p>
-
-    <h2>8. Enfants</h2>
-    <p>
-      L'application n'est pas destinée aux enfants de moins de 13 ans. Nous ne collectons pas
-      sciemment de données personnelles auprès d'enfants de moins de 13 ans.
-    </p>
-
-    <h2>9. Modifications de cette politique</h2>
-    <p>
-      Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment.
-      Les modifications seront publiées sur cette page avec une date de mise à jour.
-      L'utilisation continue de l'application après modification vaut acceptation de la nouvelle politique.
-    </p>
-
-    <h2>10. Contact</h2>
-    <p>
-      Pour toute question concernant cette politique de confidentialité ou pour exercer vos droits,
-      contactez-nous à :
-    </p>
-    <p><strong>✉ <a href="mailto:ultimatecardcollector.support@gmail.com">ultimatecardcollector.support@gmail.com</a></strong></p>
-
-    <div class="card">
-      <p>© 2026 Ultimate Card Collector. Tous droits réservés.</p>
-    </div>
-
+    <footer class="footer-card">
+      <p id="page-footer"></p>
+    </footer>
   </div>
+
+  <script>
+    var T = {
+      en: {
+        title: 'Privacy Policy',
+        subtitle: 'Last updated: June 2026',
+        intro: 'This privacy policy describes how the Ultimate Card Collector app collects, uses, and protects your information when you use our mobile application.',
+        sections: [
+          { num: '01', heading: 'Data we collect',
+            body: '<p>When you use the app, we collect the following information:</p><ul><li><strong>Username</strong> — chosen when you create your account</li><li><strong>Email address</strong> — only if you sign in with Google</li><li><strong>Game data</strong> — card collection, credits, fusion history, statistics</li><li><strong>Purchase history</strong> — in-app purchases made within the app</li><li><strong>Profile picture</strong> — the card you chose as your avatar (stored on our servers)</li></ul><p>We do not collect sensitive data such as location, contacts, or personal photos.</p>' },
+          { num: '02', heading: 'How we use your data',
+            body: '<p>Collected data is used exclusively to:</p><ul><li>Run the app and save your progress</li><li>Manage your account and purchases</li><li>Power multiplayer features (marketplace, card trading)</li><li>Improve your experience</li></ul><p><strong>We do not sell, rent, or share your personal data with third parties</strong>, except as described below.</p>' },
+          { num: '03', heading: 'Advertising (Google AdMob)',
+            body: '<p>The app displays rewarded ads via <strong>Google AdMob</strong>. AdMob may collect information to personalise advertisements, in accordance with <a href="https://policies.google.com/privacy" target="_blank">Google\'s privacy policy</a>.</p><p>You can permanently remove all ads through the in-app purchase "Remove Ads". If you do, no advertising data is collected.</p>' },
+          { num: '04', heading: 'Payments (RevenueCat)',
+            body: '<p>In-app purchases are processed via <strong>RevenueCat</strong> and native payment platforms (Google Play). We do not store any banking or credit card information. Transactions are handled according to the policies of <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> and Google.</p>' },
+          { num: '05', heading: 'Data storage & security',
+            body: '<p>Your data is stored on secure servers hosted by <strong>Railway</strong> (cloud infrastructure). Passwords are hashed with bcrypt before being saved — we never hold a plaintext password.</p><p>We apply reasonable security measures, but no data transmission over the internet can be guaranteed 100% secure.</p>' },
+          { num: '06', heading: 'Retention',
+            body: '<p>Your data is kept for as long as your account is active. To request deletion of your account and all associated data, contact us at the address below.</p>' },
+          { num: '07', heading: 'Your rights (GDPR)',
+            body: '<p>Under the General Data Protection Regulation (GDPR), you have the right to:</p><ul><li><strong>Access</strong> — view the personal data we hold about you</li><li><strong>Rectification</strong> — correct inaccurate information</li><li><strong>Erasure</strong> — request deletion of your account</li><li><strong>Portability</strong> — receive a copy of your data</li><li><strong>Objection</strong> — object to certain processing activities</li></ul><p>To exercise any of these rights, contact us at the address below.</p>' },
+          { num: '08', heading: 'Children',
+            body: '<p>This app is not intended for children under 13. We do not knowingly collect personal data from anyone under 13 years of age.</p>' },
+          { num: '09', heading: 'Policy updates',
+            body: '<p>We may update this policy at any time. Changes are posted on this page with a new effective date. Continued use of the app after a change constitutes acceptance of the updated policy.</p>' },
+          { num: '10', heading: 'Contact',
+            body: '<p>For questions about this policy or to exercise your rights:</p><a class="contact-link" href="mailto:ultimatecardcollector.support@gmail.com">✉&nbsp; ultimatecardcollector.support@gmail.com</a>' }
+        ],
+        footer: '© 2026 Ultimate Card Collector. All rights reserved.'
+      },
+
+      fr: {
+        title: 'Politique de Confidentialité',
+        subtitle: 'Dernière mise à jour : juin 2026',
+        intro: 'Cette politique de confidentialité décrit comment l\'application Ultimate Card Collector collecte, utilise et protège vos informations lorsque vous utilisez notre application mobile.',
+        sections: [
+          { num: '01', heading: 'Données collectées',
+            body: '<p>Lors de l\'utilisation de l\'application, nous collectons les informations suivantes :</p><ul><li><strong>Nom d\'utilisateur (pseudo)</strong> — choisi lors de la création du compte</li><li><strong>Adresse e-mail</strong> — uniquement si vous utilisez la connexion Google</li><li><strong>Données de jeu</strong> — collection de cartes, crédits, historique des fusions, statistiques</li><li><strong>Historique des achats</strong> — achats intégrés effectués dans l\'application</li><li><strong>Photo de profil</strong> — carte choisie comme avatar (stockée sur nos serveurs)</li></ul><p>Nous ne collectons pas de données sensibles (localisation, contacts, photos personnelles, etc.).</p>' },
+          { num: '02', heading: 'Utilisation des données',
+            body: '<p>Les données collectées sont utilisées exclusivement pour :</p><ul><li>Faire fonctionner l\'application et sauvegarder votre progression</li><li>Gérer votre compte et vos achats</li><li>Permettre les fonctionnalités multijoueur (marketplace, échanges de cartes)</li><li>Améliorer l\'expérience utilisateur</li></ul><p><strong>Nous ne vendons, ne louons et ne partageons pas vos données personnelles avec des tiers</strong>, sauf dans les cas décrits ci-dessous.</p>' },
+          { num: '03', heading: 'Publicités (Google AdMob)',
+            body: '<p>L\'application affiche des publicités avec récompense via <strong>Google AdMob</strong>. AdMob peut collecter des informations pour personnaliser les publicités, conformément à la <a href="https://policies.google.com/privacy" target="_blank">politique de confidentialité de Google</a>.</p><p>Les publicités peuvent être supprimées définitivement via l\'achat intégré "Sans publicités". Dans ce cas, aucune donnée publicitaire n\'est collectée.</p>' },
+          { num: '04', heading: 'Paiements (RevenueCat)',
+            body: '<p>Les achats intégrés sont gérés via <strong>RevenueCat</strong> et les plateformes de paiement natives (Google Play). Nous ne stockons aucune information bancaire ou de carte de crédit. Ces transactions sont traitées selon les politiques de <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> et de Google.</p>' },
+          { num: '05', heading: 'Stockage & sécurité',
+            body: '<p>Vos données sont stockées sur des serveurs sécurisés hébergés par <strong>Railway</strong> (infrastructure cloud). Les mots de passe sont chiffrés avec bcrypt avant d\'être enregistrés. Nous ne stockons jamais de mot de passe en clair.</p><p>Bien que nous mettions en œuvre des mesures de sécurité raisonnables, aucune transmission de données sur Internet n\'est garantie à 100 % sécurisée.</p>' },
+          { num: '06', heading: 'Conservation',
+            body: '<p>Vos données sont conservées tant que votre compte est actif. Vous pouvez demander la suppression de votre compte et de toutes vos données associées en nous contactant à l\'adresse indiquée ci-dessous.</p>' },
+          { num: '07', heading: 'Droits des utilisateurs (RGPD)',
+            body: '<p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p><ul><li><strong>Droit d\'accès</strong> — consulter vos données personnelles</li><li><strong>Droit de rectification</strong> — corriger vos informations</li><li><strong>Droit à l\'effacement</strong> — demander la suppression de votre compte</li><li><strong>Droit à la portabilité</strong> — obtenir une copie de vos données</li><li><strong>Droit d\'opposition</strong> — vous opposer à certains traitements</li></ul><p>Pour exercer ces droits, contactez-nous à l\'adresse indiquée ci-dessous.</p>' },
+          { num: '08', heading: 'Enfants',
+            body: '<p>L\'application n\'est pas destinée aux enfants de moins de 13 ans. Nous ne collectons pas sciemment de données personnelles auprès d\'enfants de moins de 13 ans.</p>' },
+          { num: '09', heading: 'Modifications',
+            body: '<p>Nous nous réservons le droit de modifier cette politique à tout moment. Les modifications seront publiées sur cette page avec une date de mise à jour. L\'utilisation continue de l\'application après modification vaut acceptation de la nouvelle politique.</p>' },
+          { num: '10', heading: 'Contact',
+            body: '<p>Pour toute question concernant cette politique ou pour exercer vos droits :</p><a class="contact-link" href="mailto:ultimatecardcollector.support@gmail.com">✉&nbsp; ultimatecardcollector.support@gmail.com</a>' }
+        ],
+        footer: '© 2026 Ultimate Card Collector. Tous droits réservés.'
+      },
+
+      es: {
+        title: 'Política de Privacidad',
+        subtitle: 'Última actualización: junio de 2026',
+        intro: 'Esta política de privacidad describe cómo la aplicación Ultimate Card Collector recopila, usa y protege su información cuando utiliza nuestra aplicación móvil.',
+        sections: [
+          { num: '01', heading: 'Datos que recopilamos',
+            body: '<p>Al usar la aplicación, recopilamos la siguiente información:</p><ul><li><strong>Nombre de usuario</strong> — elegido al crear la cuenta</li><li><strong>Dirección de correo electrónico</strong> — solo si inicia sesión con Google</li><li><strong>Datos del juego</strong> — colección de cartas, créditos, historial de fusiones, estadísticas</li><li><strong>Historial de compras</strong> — compras realizadas dentro de la aplicación</li><li><strong>Foto de perfil</strong> — carta elegida como avatar (almacenada en nuestros servidores)</li></ul><p>No recopilamos datos sensibles como ubicación, contactos o fotos personales.</p>' },
+          { num: '02', heading: 'Cómo usamos sus datos',
+            body: '<p>Los datos recopilados se utilizan exclusivamente para:</p><ul><li>Hacer funcionar la aplicación y guardar su progreso</li><li>Gestionar su cuenta y compras</li><li>Habilitar funciones multijugador (mercado, intercambio de cartas)</li><li>Mejorar su experiencia</li></ul><p><strong>No vendemos, alquilamos ni compartimos sus datos personales con terceros</strong>, salvo en los casos descritos a continuación.</p>' },
+          { num: '03', heading: 'Publicidad (Google AdMob)',
+            body: '<p>La aplicación muestra anuncios con recompensa a través de <strong>Google AdMob</strong>. AdMob puede recopilar información para personalizar los anuncios, de acuerdo con la <a href="https://policies.google.com/privacy" target="_blank">política de privacidad de Google</a>.</p><p>Puede eliminar los anuncios de forma permanente mediante la compra "Sin anuncios". En ese caso, no se recopilan datos publicitarios.</p>' },
+          { num: '04', heading: 'Pagos (RevenueCat)',
+            body: '<p>Las compras dentro de la aplicación se procesan a través de <strong>RevenueCat</strong> y plataformas de pago nativas (Google Play). No almacenamos información bancaria ni de tarjetas de crédito. Las transacciones siguen las políticas de <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> y de Google.</p>' },
+          { num: '05', heading: 'Almacenamiento & seguridad',
+            body: '<p>Sus datos se almacenan en servidores seguros alojados por <strong>Railway</strong> (infraestructura en la nube). Las contraseñas se cifran con bcrypt antes de guardarse — nunca almacenamos contraseñas en texto plano.</p><p>Implementamos medidas de seguridad razonables, pero ninguna transmisión de datos por Internet está garantizada al 100%.</p>' },
+          { num: '06', heading: 'Retención de datos',
+            body: '<p>Sus datos se conservan mientras su cuenta esté activa. Puede solicitar la eliminación de su cuenta y todos los datos asociados contactándonos en la dirección indicada a continuación.</p>' },
+          { num: '07', heading: 'Sus derechos (RGPD)',
+            body: '<p>De conformidad con el Reglamento General de Protección de Datos (RGPD), tiene los siguientes derechos:</p><ul><li><strong>Acceso</strong> — consultar sus datos personales</li><li><strong>Rectificación</strong> — corregir información inexacta</li><li><strong>Supresión</strong> — solicitar la eliminación de su cuenta</li><li><strong>Portabilidad</strong> — obtener una copia de sus datos</li><li><strong>Oposición</strong> — oponerse a ciertos tratamientos</li></ul><p>Para ejercer estos derechos, contáctenos en la dirección indicada a continuación.</p>' },
+          { num: '08', heading: 'Menores de edad',
+            body: '<p>Esta aplicación no está destinada a menores de 13 años. No recopilamos datos personales de menores de 13 años de forma consciente.</p>' },
+          { num: '09', heading: 'Cambios en esta política',
+            body: '<p>Nos reservamos el derecho de modificar esta política en cualquier momento. Los cambios se publicarán en esta página con una fecha de actualización. El uso continuado de la aplicación tras la modificación constituye la aceptación de la nueva política.</p>' },
+          { num: '10', heading: 'Contacto',
+            body: '<p>Para cualquier consulta sobre esta política o para ejercer sus derechos:</p><a class="contact-link" href="mailto:ultimatecardcollector.support@gmail.com">✉&nbsp; ultimatecardcollector.support@gmail.com</a>' }
+        ],
+        footer: '© 2026 Ultimate Card Collector. Todos los derechos reservados.'
+      },
+
+      de: {
+        title: 'Datenschutzrichtlinie',
+        subtitle: 'Letzte Aktualisierung: Juni 2026',
+        intro: 'Diese Datenschutzrichtlinie beschreibt, wie die App Ultimate Card Collector Ihre Informationen erfasst, verwendet und schützt, wenn Sie unsere mobile Anwendung nutzen.',
+        sections: [
+          { num: '01', heading: 'Erhobene Daten',
+            body: '<p>Bei der Nutzung der App erfassen wir folgende Informationen:</p><ul><li><strong>Benutzername</strong> — bei der Kontoerstellung gewählt</li><li><strong>E-Mail-Adresse</strong> — nur bei Anmeldung über Google</li><li><strong>Spieldaten</strong> — Kartensammlung, Credits, Fusionsverlauf, Statistiken</li><li><strong>Kaufhistorie</strong> — In-App-Käufe innerhalb der App</li><li><strong>Profilbild</strong> — als Avatar gewählte Karte (auf unseren Servern gespeichert)</li></ul><p>Wir erfassen keine sensiblen Daten wie Standort, Kontakte oder persönliche Fotos.</p>' },
+          { num: '02', heading: 'Verwendung Ihrer Daten',
+            body: '<p>Die erhobenen Daten werden ausschließlich verwendet, um:</p><ul><li>Die App zu betreiben und Ihren Fortschritt zu speichern</li><li>Ihr Konto und Ihre Käufe zu verwalten</li><li>Mehrspielerfunktionen zu ermöglichen (Marktplatz, Kartentausch)</li><li>Ihr Spielerlebnis zu verbessern</li></ul><p><strong>Wir verkaufen, vermieten oder teilen Ihre persönlichen Daten nicht mit Dritten</strong>, außer wie nachstehend beschrieben.</p>' },
+          { num: '03', heading: 'Werbung (Google AdMob)',
+            body: '<p>Die App zeigt Belohnungswerbung über <strong>Google AdMob</strong> an. AdMob kann Informationen zur Personalisierung von Anzeigen erfassen, gemäß der <a href="https://policies.google.com/privacy" target="_blank">Datenschutzrichtlinie von Google</a>.</p><p>Werbeanzeigen können dauerhaft über den In-App-Kauf „Werbung entfernen" deaktiviert werden. In diesem Fall werden keine Werbedaten erfasst.</p>' },
+          { num: '04', heading: 'Zahlungen (RevenueCat)',
+            body: '<p>In-App-Käufe werden über <strong>RevenueCat</strong> und native Zahlungsplattformen (Google Play) abgewickelt. Wir speichern keine Bank- oder Kreditkarteninformationen. Transaktionen werden gemäß den Richtlinien von <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> und Google verarbeitet.</p>' },
+          { num: '05', heading: 'Datenspeicherung & Sicherheit',
+            body: '<p>Ihre Daten werden auf sicheren Servern von <strong>Railway</strong> (Cloud-Infrastruktur) gespeichert. Passwörter werden mit bcrypt gehasht — wir speichern niemals Passwörter im Klartext.</p><p>Wir setzen angemessene Sicherheitsmaßnahmen ein, jedoch kann keine Datenübertragung über das Internet zu 100% als sicher garantiert werden.</p>' },
+          { num: '06', heading: 'Aufbewahrung',
+            body: '<p>Ihre Daten werden gespeichert, solange Ihr Konto aktiv ist. Sie können die Löschung Ihres Kontos und aller zugehörigen Daten beantragen, indem Sie uns unter der unten angegebenen Adresse kontaktieren.</p>' },
+          { num: '07', heading: 'Ihre Rechte (DSGVO)',
+            body: '<p>Gemäß der Datenschutz-Grundverordnung (DSGVO) haben Sie folgende Rechte:</p><ul><li><strong>Auskunft</strong> — Einsicht in Ihre gespeicherten Daten</li><li><strong>Berichtigung</strong> — Korrektur unrichtiger Informationen</li><li><strong>Löschung</strong> — Antrag auf Löschung Ihres Kontos</li><li><strong>Datenübertragbarkeit</strong> — Erhalt einer Kopie Ihrer Daten</li><li><strong>Widerspruch</strong> — Widerspruch gegen bestimmte Verarbeitungen</li></ul><p>Um diese Rechte auszuüben, kontaktieren Sie uns unter der unten angegebenen Adresse.</p>' },
+          { num: '08', heading: 'Kinder',
+            body: '<p>Diese App richtet sich nicht an Kinder unter 13 Jahren. Wir erfassen wissentlich keine personenbezogenen Daten von Kindern unter 13 Jahren.</p>' },
+          { num: '09', heading: 'Änderungen dieser Richtlinie',
+            body: '<p>Wir behalten uns das Recht vor, diese Richtlinie jederzeit zu ändern. Änderungen werden auf dieser Seite mit einem aktualisierten Datum veröffentlicht. Die fortgesetzte Nutzung der App nach einer Änderung gilt als Zustimmung zur neuen Richtlinie.</p>' },
+          { num: '10', heading: 'Kontakt',
+            body: '<p>Bei Fragen zu dieser Richtlinie oder zur Ausübung Ihrer Rechte:</p><a class="contact-link" href="mailto:ultimatecardcollector.support@gmail.com">✉&nbsp; ultimatecardcollector.support@gmail.com</a>' }
+        ],
+        footer: '© 2026 Ultimate Card Collector. Alle Rechte vorbehalten.'
+      },
+
+      pt: {
+        title: 'Política de Privacidade',
+        subtitle: 'Última atualização: junho de 2026',
+        intro: 'Esta política de privacidade descreve como o aplicativo Ultimate Card Collector coleta, usa e protege suas informações quando você usa nosso aplicativo móvel.',
+        sections: [
+          { num: '01', heading: 'Dados coletados',
+            body: '<p>Ao usar o aplicativo, coletamos as seguintes informações:</p><ul><li><strong>Nome de usuário</strong> — escolhido ao criar a conta</li><li><strong>Endereço de e-mail</strong> — apenas se você entrar com o Google</li><li><strong>Dados do jogo</strong> — coleção de cartas, créditos, histórico de fusões, estatísticas</li><li><strong>Histórico de compras</strong> — compras realizadas no aplicativo</li><li><strong>Foto de perfil</strong> — carta escolhida como avatar (armazenada em nossos servidores)</li></ul><p>Não coletamos dados sensíveis como localização, contatos ou fotos pessoais.</p>' },
+          { num: '02', heading: 'Como usamos seus dados',
+            body: '<p>Os dados coletados são usados exclusivamente para:</p><ul><li>Fazer o aplicativo funcionar e salvar seu progresso</li><li>Gerenciar sua conta e compras</li><li>Habilitar recursos multijogador (mercado, troca de cartas)</li><li>Melhorar sua experiência</li></ul><p><strong>Não vendemos, alugamos ou compartilhamos seus dados pessoais com terceiros</strong>, exceto conforme descrito abaixo.</p>' },
+          { num: '03', heading: 'Publicidade (Google AdMob)',
+            body: '<p>O aplicativo exibe anúncios com recompensa via <strong>Google AdMob</strong>. O AdMob pode coletar informações para personalizar anúncios, de acordo com a <a href="https://policies.google.com/privacy" target="_blank">política de privacidade do Google</a>.</p><p>Você pode remover os anúncios permanentemente por meio da compra "Remover anúncios". Nesse caso, nenhum dado publicitário é coletado.</p>' },
+          { num: '04', heading: 'Pagamentos (RevenueCat)',
+            body: '<p>As compras no aplicativo são processadas via <strong>RevenueCat</strong> e plataformas de pagamento nativas (Google Play). Não armazenamos informações bancárias ou de cartão de crédito. As transações são processadas conforme as políticas da <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a> e do Google.</p>' },
+          { num: '05', heading: 'Armazenamento & segurança',
+            body: '<p>Seus dados são armazenados em servidores seguros hospedados pela <strong>Railway</strong> (infraestrutura em nuvem). As senhas são protegidas com bcrypt antes de serem salvas — nunca armazenamos senhas em texto puro.</p><p>Implementamos medidas de segurança razoáveis, mas nenhuma transmissão de dados pela Internet pode ser garantida como 100% segura.</p>' },
+          { num: '06', heading: 'Retenção de dados',
+            body: '<p>Seus dados são mantidos enquanto sua conta estiver ativa. Você pode solicitar a exclusão de sua conta e de todos os dados associados entrando em contato conosco no endereço indicado abaixo.</p>' },
+          { num: '07', heading: 'Seus direitos (RGPD)',
+            body: '<p>Em conformidade com o Regulamento Geral de Proteção de Dados (RGPD), você tem os seguintes direitos:</p><ul><li><strong>Acesso</strong> — consultar seus dados pessoais</li><li><strong>Retificação</strong> — corrigir informações incorretas</li><li><strong>Exclusão</strong> — solicitar a exclusão de sua conta</li><li><strong>Portabilidade</strong> — obter uma cópia de seus dados</li><li><strong>Oposição</strong> — opor-se a determinados tratamentos</li></ul><p>Para exercer esses direitos, entre em contato conosco no endereço indicado abaixo.</p>' },
+          { num: '08', heading: 'Crianças',
+            body: '<p>Este aplicativo não se destina a crianças menores de 13 anos. Não coletamos conscientemente dados pessoais de crianças menores de 13 anos.</p>' },
+          { num: '09', heading: 'Alterações nesta política',
+            body: '<p>Reservamos o direito de modificar esta política a qualquer momento. As alterações serão publicadas nesta página com uma data atualizada. O uso continuado do aplicativo após uma alteração constitui aceitação da nova política.</p>' },
+          { num: '10', heading: 'Contato',
+            body: '<p>Para dúvidas sobre esta política ou para exercer seus direitos:</p><a class="contact-link" href="mailto:ultimatecardcollector.support@gmail.com">✉&nbsp; ultimatecardcollector.support@gmail.com</a>' }
+        ],
+        footer: '© 2026 Ultimate Card Collector. Todos os direitos reservados.'
+      }
+    };
+
+    function setLang(code) {
+      var t = T[code];
+      document.documentElement.lang = code;
+      document.title = t.title + ' — Ultimate Card Collector';
+      document.getElementById('page-title').textContent = t.title;
+      document.getElementById('page-subtitle').textContent = t.subtitle;
+      document.getElementById('page-intro').textContent = t.intro;
+      document.getElementById('page-footer').textContent = t.footer;
+
+      var html = '';
+      for (var i = 0; i < t.sections.length; i++) {
+        var s = t.sections[i];
+        html += '<div class="section">';
+        html += '<h2><span class="sec-num">' + s.num + '</span>' + s.heading + '</h2>';
+        html += s.body;
+        html += '</div>';
+      }
+      document.getElementById('content').innerHTML = html;
+
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.dataset.lang === code);
+        btn.setAttribute('aria-pressed', btn.dataset.lang === code ? 'true' : 'false');
+      });
+    }
+
+    var detected = (navigator.language || 'en').toLowerCase().slice(0, 2);
+    setLang(['en','fr','es','de','pt'].indexOf(detected) !== -1 ? detected : 'en');
+  </script>
 </body>
 </html>
